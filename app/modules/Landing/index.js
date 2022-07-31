@@ -9,10 +9,10 @@ export default function Content() {
       <div className={styles.left}>
         <div>
           <h1>
-            Welcome to <span className={styles.blue}>App Name</span>.
+            Welcome to <span className={styles.blue}>Metahub</span>.
           </h1>
           <h1>
-            Your gateway to the <span className={styles.blue}>Metaverse.</span>
+            Your gateway to the <span className={styles.blue}>Metaverse</span>.
           </h1>
         </div>
         <div className={styles.buttons}>
