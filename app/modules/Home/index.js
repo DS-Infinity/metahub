@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from '../../utils/axios';
 import Loader from '../../components/Loader';
 import Image from 'next/image';
+
 import Clipboard from '../../public/icons/clipboard.svg';
 
 export default function Content() {
@@ -48,25 +49,19 @@ export default function Content() {
 
             <div className={PageStyles.content__section__body}>
               <div className={styles.verses__grid}>
-                {myVerses.length !== 0 && (
+                {myVerses.length !== 0 ? (
                   <>
                     {myVerses.map((verse, index) => {
                       return (
                         <div
                           className={styles.verses__grid__item}
                           style={{
-                            width: `${100 / myVerses.length}%`,
-                            maxWidth: `50%`,
+                            width: `${100 / myVerses.length - 1.9} %`,
                           }}
                           key={index}
                         >
                           <div className={styles.verses__grid__item__left}>
-                            <img
-                              src={
-                                'https://i.picsum.photos/id/18/536/354.jpg?hmac=FlV7gOOejOI5T5E4xPY1Orq37bUQ629f51vdh554n6g'
-                              }
-                              alt="verse"
-                            />
+                            <img src={verse.logo} alt="verse" />
                           </div>
                           <div className={styles.verses__grid__item__right}>
                             <div
@@ -110,7 +105,9 @@ export default function Content() {
                                 <div>
                                   {verse.onlineUsers
                                     ? verse.onlineUsers
-                                    : verse.authorizedUsers.length / 2}{' '}
+                                    : Math.ceil(
+                                        verse.authorizedUsers.length / 2
+                                      )}{' '}
                                   Online
                                 </div>
                               </div>
@@ -127,6 +124,10 @@ export default function Content() {
                       );
                     })}
                   </>
+                ) : (
+                  <div className={styles.noVerses}>
+                    You haven't joined any verses... yet.
+                  </div>
                 )}
               </div>
             </div>
@@ -143,24 +144,16 @@ export default function Content() {
             </div>
 
             <div className={PageStyles.content__section__body}>
-              {console.log(verses)}
               <div className={styles.explore__grid}>
                 {verses.map((verse, index) => {
                   return (
                     <div
                       className={styles.explore__grid__item}
-                      style={{
-                        
-                      }}
+                      style={{}}
                       key={index}
                     >
                       <div className={styles.explore__grid__item__left}>
-                        <img
-                          src={
-                            'https://i.picsum.photos/id/18/536/354.jpg?hmac=FlV7gOOejOI5T5E4xPY1Orq37bUQ629f51vdh554n6g'
-                          }
-                          alt="verse"
-                        />
+                        <img src={verse.logo} alt="verse" />
                       </div>
                       <div className={styles.explore__grid__item__right}>
                         <div
@@ -198,19 +191,19 @@ export default function Content() {
                             <div>
                               {verse.onlineUsers
                                 ? verse.onlineUsers
-                                : verse.authorizedUsers.length / 2}{' '}
+                                : Math.ceil(
+                                    verse.authorizedUsers.length / 2
+                                  )}{' '}
                               Online
                             </div>
-                            
                           </div>
-                          
                         </div>
-                        <div className={styles.shit}>
-                            
-                              {verse.description}
-                              </div>
+                        <div className={styles.shit}>{verse.description}</div>
 
-                        <div className={styles.verses__grid__item__right__copy} style={{marginTop: "auto"}}>
+                        <div
+                          className={styles.verses__grid__item__right__copy}
+                          style={{ marginTop: 'auto' }}
+                        >
                           <Image src={Clipboard} width={16} height={16} />
                           <div>Copy URL</div>
                         </div>

@@ -1,13 +1,13 @@
 .verses__grid {
   width: 100%;
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 
   &__item {
     height: 130px;
-
+    min-width: 48.1%;
     border-radius: 8px;
     background-color: white;
     display: flex;
@@ -23,6 +23,7 @@
         height: 100%;
         max-height: 100%;
         border-radius: 8px 0px 0 8px;
+        object-fit: cover;
       }
     }
 
@@ -122,24 +123,26 @@
     border-radius: 8px;
     background-color: white;
     display: flex;
-   
+    gap: 60px;
+
     border: 3px solid #ebebeb;
     width: 100%;
     &__left {
       margin: 0px auto auto 0;
       height: 100%;
-      width: 60%;
+      width: 40%;
 
       img {
-        max-width: 157px;
+        width: 100%;
         height: 100%;
         max-height: 100%;
         border-radius: 8px 0px 0 8px;
+        object-fit: cover;
       }
     }
 
     &__right {
-      margin: 2% auto auto -40px;
+      margin: 1.5% auto auto -40px;
       width: 80%;
       height: 90%;
       display: flex;
@@ -150,8 +153,7 @@
         margin-bottom: 6px;
         font-weight: 800;
         color: var(--grey-1000);
-        margin-top: 0;
-        
+        margin-top: 10px;
       }
 
       &__status {
@@ -205,7 +207,7 @@
         font-size: 14px;
         background-color: rgba(#0668e1, 0.1);
         width: fit-content;
-        padding: 5px 10px;
+        padding: 6px 10px;
         border-radius: 5px;
         cursor: pointer;
         transition: all 0.2s;
@@ -226,5 +228,11 @@
 .shit {
   color: #707070;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.noVerses {
+  color: #707070;
+  font-weight: 600;
 }
