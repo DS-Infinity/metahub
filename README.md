@@ -9,7 +9,7 @@
 ### 2) Redirect your user to the following page for authorization -
 
 ```
-https://minet-metaverse.vercel.app/oauth/authorize?clientId={{clientId}}
+https://metahub.vercel.app/oauth/authorize?clientId={{clientId}}
 ```
 
 #### Parameters -
